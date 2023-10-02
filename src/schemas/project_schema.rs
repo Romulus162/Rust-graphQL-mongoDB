@@ -2,9 +2,8 @@ use async_graphql::{ Enum, InputObject, SimpleObject };
 use mongodb::bson::oid::ObjectId;
 use serde::{ Deserialize, Serialize };
 
-#[derive(Debug, Clone, Serialize, Deserialize, SimpleObjet)]
+#[derive(Debug, Clone, Serialize, Deserialize, SimpleObject)]
 pub struct Owner {
-    #[serde(skip_serializing_if = "Option::is_none")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub _id: Option<ObjectId>,
     pub name: String,
