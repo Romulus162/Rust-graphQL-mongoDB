@@ -39,6 +39,7 @@ pub struct Mutation;
 #[Object]
 impl Mutation {
     async fn create_owner(&self, ctx: &Context<'_>, input: CreateOwner) -> FieldResult<Owner> {
+        let db = &ctx.data_unchecked::<DBMongo>();
         let new_owner = Owner {
             _id: None,
             email: input.email,

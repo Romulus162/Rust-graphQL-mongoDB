@@ -76,7 +76,7 @@ impl DBMongo {
         Ok(new_project)
     }
 
-    pub fn get_project(&self) -> Result<Vec<Project>, Error> {
+    pub fn get_projects(&self) -> Result<Vec<Project>, Error> {
         let col = DBMongo::col_helper::<Project>(&self, "project");
         let cursors = col.find(None, None).ok().expect("Error getting list of projects");
         let projects: Vec<Project> = cursors.map(|doc| doc.unwrap()).collect();
